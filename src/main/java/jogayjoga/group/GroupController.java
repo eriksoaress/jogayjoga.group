@@ -29,6 +29,12 @@ public interface GroupController {
     //     @RequestHeader(required = true, name = "role-user") String roleUser
     // );
 
+    @GetMapping("/group/{id}/sportname")
+    ResponseEntity<GroupSportOut> getFullInfo(
+        @PathVariable(required = true) String id
+    );
+
+
     @GetMapping("/group/{id}")
     public ResponseEntity<GroupOut> read(
         @PathVariable(required = true) String id
