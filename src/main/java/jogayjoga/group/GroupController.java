@@ -1,6 +1,8 @@
 package jogayjoga.group;
 
 
+import java.util.List;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,9 @@ public interface GroupController {
     @PostMapping("/group")
     public ResponseEntity<GroupOut> create(
         @RequestBody(required=true) GroupIn in);
+
+    @GetMapping("/group")
+    public ResponseEntity<List<GroupOut>> readall();
 
 
     // @PutMapping("/group/{id}")
