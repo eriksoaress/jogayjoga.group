@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,17 +24,16 @@ public interface GroupController {
     public ResponseEntity<List<GroupOut>> readall();
 
 
-    // @PutMapping("/group/{id}")
-    // public ResponseEntity<GroupOut> update(
-    //     @PathVariable(required = true) String id,
-    //     @RequestBody(required = true) GroupIn in
-    //     );
-    
-    // @GetMapping("/group")
-    // public ResponseEntity<GroupOut> readall(
-    //     @RequestHeader(required = true, name = "id-user") String idUser,
-    //     @RequestHeader(required = true, name = "role-user") String roleUser
-    // );
+    @PutMapping("/group/{id}")
+    public ResponseEntity<GroupOut> update(
+        @PathVariable(required = true) String id,
+        @RequestBody(required = true) GroupIn in
+        );
+
+    @DeleteMapping("/group/{id}")
+    public ResponseEntity<?> delete(
+        @PathVariable(required = true) String id
+        );
 
     @GetMapping("/group/{id}/sportname")
     ResponseEntity<GroupSportOut> getFullInfo(
